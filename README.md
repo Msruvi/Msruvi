@@ -8,49 +8,182 @@ This is a group project developed for [Enterprises Architecture]. The project ai
 - KEG/IT/2021/F/0038 - Nethmi Aloka
 - KEG/IT/2021/F/0092 - Ruvini Nandasena
 
+
+## Tools Used
+
+- **Java:** Primary programming language utilized for the application logic.
+- **NetBeans:** Integrated Development Environment (IDE) employed for Java development.
+- **Java Swing:** Toolkit utilized for constructing graphical user interfaces in Java.
+- **XAMPP & MySQL:** Relational database management system used for storing employee data.
+
+
+
 ## Features
 
 - **Add Books:** Ability to add new books to the library catalog.
 - **View Books:** Display existing books in the library catalog.
 - **Update Books:** Modify information of existing books in the catalog.
 - **Delete Books:** Remove books from the library catalog.
-- **Manage Patrons:** Add, view, update, and delete library patrons.
-- **Checkout Books:** Allow patrons to borrow books from the library.
-- **Return Books:** Process returns of borrowed books.
 - **GUI:** User-friendly graphical user interface for easy navigation and interaction.
 
-## Database by Nethmi
+## Database and Add by **KEG/IT/2021/F/0038 - Nethmi Aloka**
 
 - Set up MySQL database with appropriate tables for storing book and patron information.
 - Implement database connections and queries to interact with the database.
+public static Connection connection(){
 
-## Update and View Parts by Ruvini
+**database**    
+```       
+      package assignment;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+/**
+ *
+ * @author hndit2
+ */
+public class database {
+    
+    
+    public static Connection connection(){
+    
+        
+        try{
+        
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","");
+            return con;
+        
+        }catch(Exception e){
+            System.out.println(e);
+            return null;
+        }
+        
+    }
+}
+```
+**Add**
+```
+ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        Connection con = database.connection();
+        
+        try{
+            
+            PreparedStatement ptst = con.prepareStatement("insert into book (id,name,author) values(?,?,?)");
+            ptst.setString(1, txtId.getText());
+            ptst.setString(2, txtName.getText());
+            ptst.setString(3, txtAuthor.getText());
+          
+            
+            int i = ptst.executeUpdate();
+            
+            if(i != 0){
+                JOptionPane.showMessageDialog(null, "Book Added Successfully !");
+                clear();
+            }
+        
+        }catch(Exception e){
+            System.out.println(e);
+        }
+```
+## Update and View Parts by **KEG/IT/2021/F/0092 - Ruvini Nandasena**
 
 - Implement functionality to update book information.
 - Implement functionality to view book details and patron information.
 
-## Delete and UI by Hirumi
+**Upadate**
+```
+private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+Connection con = database.connection();
+
+        try{
+            
+            String updateqry = "update book set name = '"+txtname.getText()+"',Author = '"+txtAuthor.getText()+"' ";
+            PreparedStatement ptst = con.prepareStatement(updateqry);
+            
+            
+            int rowsA = ptst.executeUpdate();
+            
+           
+                clear();
+            
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+```
+**View**
+
+```
+public void showData(){
+    
+        Connection con = database.connection();
+        
+        try{
+        
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from book");
+            
+            
+        DefaultTableModel model = (DefaultTableModel) view.getModel();
+        model.setRowCount(0);
+        
+        while(rs.next()){
+        
+            String id = String.valueOf(rs.getString("id"));
+            String name = rs.getString("name");
+            String author= rs.getString("author");
+          
+            
+            String addT [] = {id,name,author};
+            
+            model.addRow(addT);
+        
+        }
+        
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+```
+
+## Delete and UI by **KEG/IT/2021/F/0033 - Hirumi**
 
 - Implement functionality to delete books from the catalog.
 - Design and develop the user interface for the library management system.
 
+```
+ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        Connection con = database.connection();
+        
+        try{
+            
+            Statement stmt = con.createStatement();
+            int i = stmt.executeUpdate("delete from book where id = '"+Integer.parseInt(txtID.getText())+"' ");
+            
+            if(i!= 0){
+                JOptionPane.showMessageDialog(null, "Recoard Deleted Successfully!");
+                txtID.setText("");
+            }
+            
+        
+        }catch(Exception e){
+            System.out.println(e);
+        
+        }
+```
+
 ## Contribution
 
-All group members contributed to various aspects of the project. Apart from the specific functionalities mentioned above, all members collaborated on testing, debugging, and fine-tuning of the application.
+All group members contributed to various aspects of the project.
 
-## Contributing
 
-Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
 
-1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -am 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Create a new Pull Request.
-
-## License
-
-This project is open-source, but it does not include a specific license. You are free to view, modify, and distribute the code as you see fit. However, please note that without a license, there are no explicit permissions or restrictions associated with the use of this software. It is recommended to consult with your legal advisor regarding the usage of this code.
 
 
 
