@@ -1,10 +1,10 @@
 # Library Management System
 
-This is a group project developed for [Enterprises Architecture]. The project aims to develop a library management system to efficiently manage books, patrons, and transactions.
+This is a group project developed for Enterprise Architecture. The project aims to develop a library management system to efficiently manage books details.
 
 ## Group Members
 
-- KEG/IT/2021/F/0033 - Hirumi
+- KEG/IT/2021/F/0033 - Hirumi Umeha
 - KEG/IT/2021/F/0038 - Nethmi Aloka
 - KEG/IT/2021/F/0092 - Ruvini Nandasena
 
@@ -14,7 +14,7 @@ This is a group project developed for [Enterprises Architecture]. The project ai
 - **Java:** Primary programming language utilized for the application logic.
 - **NetBeans:** Integrated Development Environment (IDE) employed for Java development.
 - **Java Swing:** Toolkit utilized for constructing graphical user interfaces in Java.
-- **XAMPP & MySQL:** Relational database management system used for storing employee data.
+- **XAMPP & MySQL:** Relational database management system used for storing book data.
 
 
 
@@ -28,9 +28,9 @@ This is a group project developed for [Enterprises Architecture]. The project ai
 
 ## Database and Add by **KEG/IT/2021/F/0038 - Nethmi Aloka**
 
-- Set up MySQL database with appropriate tables for storing book and patron information.
+- Set up MySQL database with appropriate tables for storing book details.
 - Implement database connections and queries to interact with the database.
-public static Connection connection(){
+
 
 **database**    
 ```       
@@ -91,7 +91,7 @@ public class database {
 ## Update and View Parts by **KEG/IT/2021/F/0092 - Ruvini Nandasena**
 
 - Implement functionality to update book information.
-- Implement functionality to view book details and patron information.
+- Implement functionality to view book details.
 
 **Upadate**
 ```
