@@ -1,6 +1,6 @@
 #  Enterprises Architecture Assignment
 
-## JDBC CRUD Application
+## Library Managemnt System
 
 ### G.R.N.A.B Godagama
 ### KEG/IT/2021/F/0038
