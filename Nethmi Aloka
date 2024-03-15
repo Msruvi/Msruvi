@@ -1,0 +1,62 @@
+## Database and Add by **KEG/IT/2021/F/0038 - Nethmi Aloka**
+
+- Set up MySQL database with appropriate tables for storing book details.
+- Implement database connections and queries to interact with the database.
+
+
+**database**    
+```       
+      package assignment;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+/**
+ *
+ * @author hndit2
+ */
+public class database {
+    
+    
+    public static Connection connection(){
+    
+        
+        try{
+        
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","");
+            return con;
+        
+        }catch(Exception e){
+            System.out.println(e);
+            return null;
+        }
+        
+    }
+}
+```
+**Add**
+```
+ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        Connection con = database.connection();
+        
+        try{
+            
+            PreparedStatement ptst = con.prepareStatement("insert into book (id,name,author) values(?,?,?)");
+            ptst.setString(1, txtId.getText());
+            ptst.setString(2, txtName.getText());
+            ptst.setString(3, txtAuthor.getText());
+          
+            
+            int i = ptst.executeUpdate();
+            
+            if(i != 0){
+                JOptionPane.showMessageDialog(null, "Book Added Successfully !");
+                clear();
+            }
+        
+        }catch(Exception e){
+            System.out.println(e);
+        }
+```
