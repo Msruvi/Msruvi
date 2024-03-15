@@ -1,6 +1,6 @@
 #  Enterprises Architecture Assignment
 
-## Library Managemnt System
+## Library Management System
 
 ### G.R.N.A.B Godagama
 ### KEG/IT/2021/F/0038
