@@ -1,6 +1,6 @@
 #  Enterprises Architecture Assignment
 
-## JDBC CRUD Application
+## Library Managemnt System
 
 ### D.R.P Nandasena
 ### KEG/IT/2021/F/0092
