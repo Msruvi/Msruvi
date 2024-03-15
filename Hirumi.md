@@ -1,6 +1,6 @@
 #  Enterprises Architecture Assignment
 
-## Library Managemnt System
+## Library Management System
 
 ### H.H.U.Gunarathne
 ### KEG/IT/2021/F/0033
