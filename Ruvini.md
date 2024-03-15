@@ -1,6 +1,6 @@
 #  Enterprises Architecture Assignment
 
-## Library Managemnt System
+## Library Management System
 
 ### D.R.P Nandasena
 ### KEG/IT/2021/F/0092
